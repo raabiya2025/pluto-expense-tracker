@@ -842,3 +842,14 @@ a {
         transform: translateX(0);
     }
 }
+.summary-card.expenses {
+    border-top: 2px solid #8B5E3C;
+}
+
+.summary-card.savings {
+    border-top: 2px solid #A98B6A;
+}
+
+.summary-card.savings .summary-amount {
+    color: #D6C1A8;
+}

@@ -224,11 +224,13 @@ const funnyMessage =
             <SummaryCard
     title="Expenses"
     amount={`₹${totalExpenses.toLocaleString("en-IN")}`}
+    type="expenses"
 />
 
-            <SummaryCard
+<SummaryCard
     title="Savings"
     amount={`₹${savings.toLocaleString("en-IN")}`}
+    type="savings"
 />
 
         </section>
