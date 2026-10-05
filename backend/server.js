@@ -244,6 +244,41 @@ app.post("/api/expenses", authenticateToken, async (req, res) => {
         });
     }
 });
+app.delete("/api/expenses/:id", authenticateToken, async (req, res) => {
+    try {
+        const expenseId = Number(req.params.id);
+
+        const expense = await prisma.expenses.findFirst({
+            where: {
+                id: expenseId,
+                user_id: req.user.userId
+            }
+        });
+
+        if (!expense) {
+            return res.status(404).json({
+                error: "Expense not found"
+            });
+        }
+
+        await prisma.expenses.delete({
+            where: {
+                id: expenseId
+            }
+        });
+
+        res.json({
+            message: "Expense deleted successfully"
+        });
+
+    } catch (error) {
+        console.error(error);
+
+        res.status(500).json({
+            error: "Failed to delete expense"
+        });
+    }
+});
 app.post("/api/income", authenticateToken, async (req, res) => {
     try {
         const { amount, source, date } = req.body;

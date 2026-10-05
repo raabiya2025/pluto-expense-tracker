@@ -1,9 +1,27 @@
 import { useState } from "react";
 
-function RecentTransactions({ expenses }) {
+function RecentTransactions({ expenses , onExpenseDeleted }) {
 
     const [showAll, setShowAll] = useState(false);
+async function handleDelete(id) {
+    const token = localStorage.getItem("token");
 
+    const response = await fetch(
+        `http://localhost:5000/api/expenses/${id}`,
+        {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    );
+
+    if (response.ok) {
+        await onExpenseDeleted();
+    } else {
+        console.error("Failed to delete expense");
+    }
+}
     const displayedTransactions = showAll
         ? expenses
         : expenses.slice(0, 5);
@@ -32,7 +50,7 @@ function RecentTransactions({ expenses }) {
             <div className="transactions-list">
 
                 {displayedTransactions.map((transaction) => (
-
+                    
                     <div
                         className="transaction-item"
                         key={transaction.id}
@@ -64,9 +82,19 @@ function RecentTransactions({ expenses }) {
 
                         </div>
 
-                        <span className="transaction-amount">
-                            -₹{Number(transaction.amount).toLocaleString("en-IN")}
-                        </span>
+                        <div className="transaction-actions">
+    <span className="transaction-amount">
+        -₹{Number(transaction.amount).toLocaleString("en-IN")}
+    </span>
+
+    <button
+        className="delete-transaction-button"
+        onClick={() => handleDelete(transaction.id)}
+        title="Delete expense"
+    >
+        🗑️
+    </button>
+</div>
 
                     </div>
 

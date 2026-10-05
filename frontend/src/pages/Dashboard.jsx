@@ -236,7 +236,10 @@ const funnyMessage =
         </section>
         <SpendingOverview expenses={expenses} />
         <TopCategories expenses={expenses} />
-        <RecentTransactions expenses={expenses} />
+        <RecentTransactions
+    expenses={expenses}
+    onExpenseDeleted={getExpenses}
+/>
 
     </main>
 );
