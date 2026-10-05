@@ -249,6 +249,28 @@ a {
     border: 1px solid #302A25;
     border-radius: 20px;
     background: #1D1A17;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.summary-card:hover {
+    border-color: #5A4637;
+    transform: translateY(-2px);
+}
+.summary-title {
+    margin: 0 0 12px;
+    color: #A99C90;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.summary-amount {
+    margin: 0;
+    color: #F3E9DC;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -1px;
 }
 
 .summary-title {
