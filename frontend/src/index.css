@@ -492,9 +492,21 @@ a {
     align-items: center;
     justify-content: space-between;
 
-    padding: 20px 0;
+    padding: 16px 0;
 
     border-bottom: 1px solid #302A25;
+
+    transition: background 0.2s ease, padding 0.2s ease;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-item:hover {
+    padding-left: 8px;
+    padding-right: 8px;
+    background: #211E1B;
 }
 
 .transaction-item:first-child {
@@ -543,6 +555,7 @@ a {
     color: #F3E9DC;
     font-size: 15px;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .view-all-button {
