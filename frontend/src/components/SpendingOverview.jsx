@@ -208,17 +208,11 @@ function SpendingOverview({ expenses }) {
                                                 cy={point.y}
                                                 r="6"
                                                 fill="#B88962"
-                                                onMouseEnter={() =>
-                                                    setHoveredPoint({
-                                                        ...point,
-                                                        title:
-                                                            expenseForDate?.title ||
-                                                            "Expense",
-                                                        category:
-                                                            expenseForDate?.category ||
-                                                            "Other"
-                                                    })
-                                                }
+                                               onMouseEnter={() =>
+    setHoveredPoint({
+        ...point
+    })
+}
                                                 onMouseLeave={() =>
                                                     setHoveredPoint(null)
                                                 }
@@ -229,36 +223,32 @@ function SpendingOverview({ expenses }) {
                                 </svg>
 
                                 {hoveredPoint && (
+    <div
+        className="chart-tooltip"
+        style={{
+            left: `${(hoveredPoint.x / 800) * 100}%`,
+            top: `${(hoveredPoint.y / 230) * 100}%`
+        }}
+    >
+        <strong>
+            Daily spending
+        </strong>
 
-                                    <div
-                                        className="chart-tooltip"
-                                        style={{
-                                            left: `${(hoveredPoint.x / 800) * 100}%`,
-                                            top: `${(hoveredPoint.y / 230) * 100}%`
-                                        }}
-                                    >
+        <span>
+            ₹{hoveredPoint.amount.toLocaleString("en-IN")}
+        </span>
 
-                                        <strong>
-                                            {hoveredPoint.title}
-                                        </strong>
-
-                                        <span>
-                                            ₹{hoveredPoint.amount.toLocaleString("en-IN")}
-                                        </span>
-
-                                        <small>
-                                            {hoveredPoint.category} •{" "}
-                                            {new Date(
-                                                hoveredPoint.date
-                                            ).toLocaleDateString("en-IN", {
-                                                day: "numeric",
-                                                month: "short",
-                                                year: "numeric"
-                                            })}
-                                        </small>
-
-                                    </div>
-                                )}
+        <small>
+            {new Date(
+                hoveredPoint.date
+            ).toLocaleDateString("en-IN", {
+                day: "numeric",
+                month: "short",
+                year: "numeric"
+            })}
+        </small>
+    </div>
+)}
 
                             </div>
 
