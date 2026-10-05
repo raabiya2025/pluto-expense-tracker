@@ -174,15 +174,17 @@ function SpendingOverview({ expenses }) {
                                 >
 
                                     <polyline
-                                        points={chartPoints
-                                            .map((point) =>
-                                                `${point.x},${point.y}`
-                                            )
-                                            .join(" ")}
-                                        fill="none"
-                                        stroke="#8B5E3C"
-                                        strokeWidth="4"
-                                    />
+    points={chartPoints
+        .map((point) =>
+            `${point.x},${point.y}`
+        )
+        .join(" ")}
+    fill="none"
+    stroke="#8B5E3C"
+    strokeWidth="3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+/>
 
                                     {chartPoints.map((point) => {
 

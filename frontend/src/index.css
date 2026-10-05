@@ -318,12 +318,25 @@ a {
 }
 
 .section-heading select {
-    padding: 9px 12px;
+    padding: 10px 14px;
     border: 1px solid #40372F;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #11100F;
-    color: #F3E9DC;
+    color: #B88962;
+    font-size: 13px;
+    font-weight: 500;
     outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.section-heading select:hover {
+    border-color: #8B5E3C;
+    background: #1D1A17;
+}
+
+.section-heading select:focus {
+    border-color: #8B5E3C;
 }
 
 .chart-placeholder {
@@ -380,7 +393,17 @@ a {
 }
 
 .category-item {
-    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid #302A25;
+    transition: transform 0.2s ease;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-item:hover {
+    transform: translateX(3px);
 }
 
 .category-info {
@@ -415,10 +438,12 @@ a {
 
 .category-progress {
     height: 100%;
-
-    background: #8B5E3C;
+    background: linear-gradient(
+        90deg,
+        #8B5E3C,
+        #B88962
+    );
     border-radius: 999px;
-
     transition: width 0.3s ease;
 }
 .transactions-section {
