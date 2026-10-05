@@ -185,20 +185,46 @@ a {
     font-size: 16px;
 }
 
+.dashboard-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.add-income-button {
+    padding: 13px 20px;
+    border: 1px solid #8B5E3C;
+    border-radius: 12px;
+    background: transparent;
+    color: #B88962;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.add-income-button:hover {
+    background: #302A25;
+    color: #F3E9DC;
+    border-color: #A06D48;
+    transform: translateY(-1px);
+}
+
 .add-expense-button {
     border: none;
     border-radius: 12px;
     padding: 13px 20px;
     background: #8B5E3C;
     color: #F3E9DC;
+    font-size: 14px;
     font-weight: 600;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .add-expense-button:hover {
     background: #A06D48;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(139, 94, 60, 0.25);
 }
-
 
 /* =========================
    SUMMARY CARDS
@@ -706,26 +732,9 @@ a {
     color: #746A61;
     font-size: 13px;
 }
-.dashboard-actions {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
 
-.add-income-button {
-    padding: 11px 18px;
-    border: 1px solid #8B5E3C;
-    border-radius: 10px;
-    background: transparent;
-    color: #B88962;
-    font-size: 14px;
-    font-weight: 500;
-}
 
-.add-income-button:hover {
-    background: #302A25;
-    color: #F3E9DC;
-}
+
 .toast {
     position: fixed;
     top: 24px;
