@@ -153,9 +153,12 @@ const funnyMessage =
 
         <section className="dashboard-header">
             <div>
-                <h1>{greeting}, {user.name} 👋</h1>
-<p>{funnyMessage}</p>
-            </div>
+    <span className="dashboard-eyebrow">YOUR FINANCIAL UNIVERSE</span>
+
+    <h1>{greeting}, {user.name} 👋</h1>
+
+    <p>{funnyMessage}</p>
+</div>
 
             <div className="dashboard-actions">
 
